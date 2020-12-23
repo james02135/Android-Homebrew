@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidHomebrew">
-        <activity android:name=".HomebrewActivity">
+        <activity android:name=".activities.HomebrewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
