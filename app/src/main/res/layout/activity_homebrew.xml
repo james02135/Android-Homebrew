@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.HomebrewActivity">
+    tools:context="org.wit.android_homebrew.activities.HomebrewActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,12 +41,25 @@
                 android:orientation="vertical">
 
             <EditText
-                android:id="@+id/homebrewTitle"
+                android:id="@+id/homebrewName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_margin="8dp"
                 android:autofillHints=""
-                android:hint="@string/hint_homebrewTitle"
+                android:hint="@string/hint_homebrewName"
+                android:inputType="text"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewDescription"
                 android:inputType="text"
                 android:maxLength="25"
                 android:maxLines="1"
@@ -69,5 +83,4 @@
         </ScrollView>
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
