@@ -3,11 +3,11 @@ package org.wit.android_homebrew.main
 import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import org.wit.android_homebrew.models.HomebrewModel
+import org.wit.android_homebrew.models.HomebrewMemStore
 
 class MainApp : Application(), AnkoLogger {
 
-    var homebrews = ArrayList<HomebrewModel>()
+    val homebrews = HomebrewMemStore()
 
     override fun onCreate() {
         super.onCreate()
