@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_homebrew_list.*
-import kotlinx.android.synthetic.main.card_homebrew.view.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import org.wit.android_homebrew.R
 import org.wit.android_homebrew.main.MainApp
 import org.wit.android_homebrew.models.HomebrewModel
 
-class HomebrewListActivity : AppCompatActivity() {
+
+class HomebrewListActivity : AppCompatActivity(), HomebrewListener {
 
     lateinit var app: MainApp
 
@@ -20,13 +20,12 @@ class HomebrewListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homebrew_list)
         app = application as MainApp
+        toolbar.title = title
+        setSupportActionBar(toolbar)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = HomebrewAdapter(app.homebrews)
-
-        toolbar.title = title
-        setSupportActionBar(toolbar)
+        recyclerView.adapter = HomebrewAdapter(app.homebrews.findAll(), this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -40,33 +39,9 @@ class HomebrewListActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-}
 
-class HomebrewAdapter constructor(private var homebrews: List<HomebrewModel>) :
-        RecyclerView.Adapter<HomebrewAdapter.MainHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomebrewAdapter.MainHolder {
-        return MainHolder(
-                LayoutInflater.from(parent.context).inflate(
-                        R.layout.card_homebrew,
-                        parent,
-                        false
-                )
-        )
-    }
-
-    override fun onBindViewHolder(holder: HomebrewAdapter.MainHolder, position: Int) {
-        val homebrew = homebrews[holder.adapterPosition]
-        holder.bind(homebrew)
-    }
-
-    override fun getItemCount(): Int = homebrews.size
-
-    class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        fun bind(homebrew: HomebrewModel) {
-            itemView.homebrewName.text = homebrew.name
-            itemView.homebrewStyle.text = homebrew.style
-        }
+    override fun onHomebrewClick(homebrew: HomebrewModel) {
+        startActivityForResult(intentFor<HomebrewActivity>().putExtra("homebrew_edit", homebrew), 0)
     }
 }
+
