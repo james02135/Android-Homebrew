@@ -1,3 +1,6 @@
 package org.wit.android_homebrew.models
 
-data class HomebrewModel(var title: String = "")
+data class HomebrewModel(
+        var name: String = "",
+        var description: String = ""
+)
