@@ -20,7 +20,7 @@ data class HomebrewModel(
         var targetFG: Double = 0.0,
         var actualOG : Double = 0.0,
         var actualFG : Double = 0.0,
-        var FermTime: Int = 0,
+        var fermTime: Int = 0,
 
 
         //var anotherMalt : Boolean = false,

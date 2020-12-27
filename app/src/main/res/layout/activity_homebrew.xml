@@ -65,7 +65,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewDate"
@@ -78,7 +79,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewABV"
@@ -91,7 +93,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewBoil"
@@ -104,7 +107,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewMalt"
@@ -126,11 +130,12 @@
                 android:layout_margin="8dp"
                 android:hint="@string/hint_homebrewHop"
                 android:inputType="text"
-                android:maxLength="25"
+                android:maxLength="60"
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewYeast"
@@ -143,7 +148,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewTOG"
@@ -156,7 +162,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewTFG"
@@ -169,7 +176,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewAOG"
@@ -182,7 +190,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewAFG"
@@ -195,7 +204,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/homebrewFT"
@@ -208,7 +218,8 @@
                 android:maxLines="1"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:autofillHints="" />
 
             <Button
                 android:id="@+id/btnAdd"
@@ -222,8 +233,24 @@
                 android:text="@string/button_addHomebrew"
                 android:textColor="@color/blue"
                 android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnDel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@color/red"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_delHomebrew"
+                android:textColor="@color/blue"
+                android:textSize="16sp" />
+
             </LinearLayout>
+
         </ScrollView>
 
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
