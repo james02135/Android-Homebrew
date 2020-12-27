@@ -23,28 +23,35 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_homebrew)
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
-        info("Homebrew Activity started" +
-                "")
+        var edit = false
+        info("Homebrew Activity started")
+
         app = application as MainApp
 
         if (intent.hasExtra("homebrew_edit")) {
+            edit = true
             homebrew = intent.extras?.getParcelable<HomebrewModel>("homebrew_edit")!!
             homebrewName.setText(homebrew.name)
             homebrewStyle.setText(homebrew.style)
+            btnAdd.setText(R.string.save_homebrew)
         }
 
         btnAdd.setOnClickListener() {
             homebrew.name = homebrewName.text.toString()
             homebrew.style = homebrewStyle.text.toString()
-            if (homebrew.name.isNotEmpty()) {
-                app!!.homebrews.create(homebrew.copy())
-                info("add Homebrew Button pressed: $homebrew")
-                setResult(AppCompatActivity.RESULT_OK)
-                finish()
+
+            if (homebrew.name.isEmpty()) {
+                toast(R.string.enter_homebrew_name)
+            } else {
+                if (edit) {
+                    app.homebrews.update(homebrew.copy())
+                } else {
+                    app.homebrews.create(homebrew.copy())
+                }
             }
-            else {
-                toast ("Please enter a Homebrew Name")
-            }
+            info("add Homebrew Button pressed: $homebrew")
+            setResult(AppCompatActivity.RESULT_OK)
+            finish()
         }
     }
 

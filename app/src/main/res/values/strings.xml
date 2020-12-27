@@ -5,4 +5,17 @@
     <string name="hint_homebrewStyle">Style</string>
     <string name="menu_addHomebrew">Add</string>
     <string name="menu_cancelHomebrew">Cancel</string>
+    <string name="enter_homebrew_name"> Please enter a Homebrew Name </string>
+    <string name="save_homebrew"> Save Homebrew </string>
+    <string name="hint_homebrewABV">ABV</string>
+    <string name="hint_homebrewDate">Brew Day</string>
+    <string name="hint_homebrewBoil">Boil Length(mins)</string>
+    <string name="hint_homebrewMalt">Malt Used</string>
+    <string name="hint_homebrewHop">Hops Used</string>
+    <string name="hint_homebrewYeast">Yeast Used</string>
+    <string name="hint_homebrewTOG">Target Original Gravity</string>
+    <string name="hint_homebrewTFG">Target Final Gravity</string>
+    <string name="hint_homebrewAOG">Actual Original Gravity</string>
+    <string name="hint_homebrewAFG">Actual Final Gravity</string>
+    <string name="hint_homebrewFT">Fermentation time</string>
 </resources>

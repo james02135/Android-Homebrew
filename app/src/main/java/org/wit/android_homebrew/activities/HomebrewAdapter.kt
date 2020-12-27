@@ -17,7 +17,10 @@ class HomebrewAdapter constructor(
         private val listener: HomebrewListener
         ) : RecyclerView.Adapter<HomebrewAdapter.MainHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomebrewAdapter.MainHolder {
+    override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+    ): MainHolder {
         return MainHolder(
                 LayoutInflater.from(parent.context).inflate(
                         R.layout.card_homebrew,
@@ -27,7 +30,10 @@ class HomebrewAdapter constructor(
         )
     }
 
-    override fun onBindViewHolder(holder: HomebrewAdapter.MainHolder, position: Int) {
+    override fun onBindViewHolder(
+            holder: MainHolder,
+            position: Int
+    ) {
         val homebrew = homebrews[holder.adapterPosition]
         holder.bind(homebrew, listener)
     }
