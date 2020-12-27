@@ -67,6 +67,149 @@
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
+            <EditText
+                android:id="@+id/homebrewDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewDate"
+                android:inputType="date"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewABV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewABV"
+                android:inputType="numberDecimal"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewBoil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewBoil"
+                android:inputType="number"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewMalt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewMalt"
+                android:inputType="text"
+                android:maxLength="60"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewHop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewHop"
+                android:inputType="text"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewYeast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewYeast"
+                android:inputType="text"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewTOG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewTOG"
+                android:inputType="numberDecimal"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewTFG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewTFG"
+                android:inputType="numberDecimal"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewAOG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewAOG"
+                android:inputType="numberDecimal"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewAFG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewAFG"
+                android:inputType="numberDecimal"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/homebrewFT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="@string/hint_homebrewFT"
+                android:inputType="text"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
             <Button
                 android:id="@+id/btnAdd"
                 android:layout_width="match_parent"
