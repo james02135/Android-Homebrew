@@ -4,7 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_homebrew.view.*
 import kotlinx.android.synthetic.main.card_homebrew.view.*
+import kotlinx.android.synthetic.main.card_homebrew.view.homebrewName
+import kotlinx.android.synthetic.main.card_homebrew.view.homebrewStyle
 import org.wit.android_homebrew.R
 import org.wit.android_homebrew.models.HomebrewModel
 

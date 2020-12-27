@@ -32,6 +32,13 @@ class HomebrewMemStore : HomebrewStore, AnkoLogger {
         }
     }
 
+    override fun delete(homebrew: HomebrewModel) {
+        homebrew.id = getId()
+        homebrews.remove(homebrew)
+        logAll()
+    }
+
+
     fun logAll() {
         homebrews.forEach{ info("${it}") }
     }
