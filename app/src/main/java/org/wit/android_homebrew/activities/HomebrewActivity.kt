@@ -16,6 +16,8 @@ import org.wit.android_homebrew.R
 import org.wit.android_homebrew.main.MainApp
 import org.wit.android_homebrew.models.HomebrewMemStore
 import org.wit.android_homebrew.models.HomebrewModel
+import org.wit.android_homebrew.models.HomebrewStore
+import java.nio.file.Files.delete
 
 
 class HomebrewActivity : AppCompatActivity(), AnkoLogger {
@@ -23,7 +25,6 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
     var homebrew = HomebrewModel()
     lateinit var app : MainApp
     var edit = false
-    //var homebrewMemStore = HomebrewMemStore()
 
     override fun onCreate(savedInstanceState: Bundle?) {//Either create a new homebrew, or edit an existing homebrew
         super.onCreate(savedInstanceState)
@@ -95,6 +96,11 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
             }
             info("add Homebrew Button pressed: $homebrewName")
             setResult(AppCompatActivity.RESULT_OK)
+            finish()
+        }
+
+        btnDel.setOnClickListener() {
+            app.homebrews.delete(homebrew)
             finish()
         }
     }
