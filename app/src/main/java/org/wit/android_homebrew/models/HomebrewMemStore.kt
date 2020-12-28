@@ -28,6 +28,18 @@ class HomebrewMemStore : HomebrewStore, AnkoLogger {
         if (foundHomebrew != null) {
             foundHomebrew.name = homebrew.name
             foundHomebrew.style = homebrew.style
+            foundHomebrew.brewDate = homebrew.brewDate
+            foundHomebrew.ABV = homebrew.ABV
+            foundHomebrew.boilLength = homebrew.boilLength
+            foundHomebrew.hop = homebrew.hop
+            foundHomebrew.malt = homebrew.malt
+            foundHomebrew.yeast = homebrew.yeast
+            foundHomebrew.targetOG = homebrew.targetOG
+            foundHomebrew.targetFG = homebrew.targetFG
+            foundHomebrew.actualOG = homebrew.actualOG
+            foundHomebrew.actualFG = homebrew.actualFG
+            foundHomebrew.fermTime = homebrew.fermTime
+
             logAll()
         }
     }

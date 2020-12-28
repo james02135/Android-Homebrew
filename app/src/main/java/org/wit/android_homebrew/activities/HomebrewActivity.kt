@@ -22,6 +22,7 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
 
     var homebrew = HomebrewModel()
     lateinit var app : MainApp
+    var edit = false
     //var homebrewMemStore = HomebrewMemStore()
 
     override fun onCreate(savedInstanceState: Bundle?) {//Either create a new homebrew, or edit an existing homebrew
@@ -29,7 +30,7 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_homebrew)
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
-        var edit = false
+
         info("Homebrew Activity started")
 
         app = application as MainApp
@@ -67,7 +68,8 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
 
             //Setting the add button
             btnAdd.setText(R.string.save_homebrew)
-        }
+        }//if intent is to edit
+
         btnAdd.setOnClickListener() {//Adding a new homebrew
             homebrew.name = homebrewName.text.toString()
             homebrew.style = homebrewStyle.text.toString()
@@ -91,17 +93,11 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
                     app.homebrews.create(homebrew.copy())
                 }
             }
-            info("add Homebrew Button pressed: $homebrew")
+            info("add Homebrew Button pressed: $homebrewName")
             setResult(AppCompatActivity.RESULT_OK)
             finish()
         }
     }
-
-//    fun onDelete() {
-//        btnDel.setOnClickListener() {
-//            homebrewMemStore.delete(homebrew)
-//        }
-//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

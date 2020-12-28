@@ -21,12 +21,13 @@ class HomebrewListActivity : AppCompatActivity(), HomebrewListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homebrew_list)
         app = application as MainApp
+
         toolbar.title = title
         setSupportActionBar(toolbar)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = HomebrewAdapter(app.homebrews.findAll(), this)
+        loadHomebrews()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,8 +47,17 @@ class HomebrewListActivity : AppCompatActivity(), HomebrewListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
+        loadHomebrews()
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun loadHomebrews() {
+        showHomebrews(app.homebrews.findAll())
+    }
+
+    private fun showHomebrews (homebrews: List<HomebrewModel>) {
+        recyclerView.adapter = HomebrewAdapter(homebrews, this)
+        recyclerView.adapter?.notifyDataSetChanged()
     }
 }
 
