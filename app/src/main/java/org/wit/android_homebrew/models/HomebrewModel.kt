@@ -11,9 +11,7 @@ data class HomebrewModel(
         var ABV : Double = 0.0,
         var brewDate: String = "",
         var boilLength : Int = 0,
-        val malts : MutableList<String> = mutableListOf(),
         var malt : String = "",
-        val hops : MutableList<String> = mutableListOf(),
         var hop : String = "",
         var yeast : String = "",
         var targetOG: Double = 0.0,
@@ -21,20 +19,4 @@ data class HomebrewModel(
         var actualOG : Double = 0.0,
         var actualFG : Double = 0.0,
         var fermTime: Int = 0,
-
-
-        //var anotherMalt : Boolean = false,
-        //var nextMalt : Int = 0,
-        //var maltChoice : String = "",
-        //var anotherHop : Boolean = false,
-        //var nextHop : Int = 0,
-        //var hopChoice : String = "",
-        //var hopTime1 : Int = 0,
-        //val hopTimes : MutableList<Int> = mutableListOf(),
-        //var dryHop : String = "",
-        //var dryHopType : String = "",
-        //var dryHopLength : Int = 0,
-        //var primaryFermTime : Int = 0,
-        //var secondaryFermTime : Int = 0,
-
 ) : Parcelable

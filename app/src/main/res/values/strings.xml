@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android-Homebrew</string>
+    <string name="app_name">Homebrew Helper</string>
 
     <string name="button_addHomebrew">Add Homebrew</string>
     <string name="button_delHomebrew">Delete</string>
