@@ -2,7 +2,7 @@
     <string name="app_name">Homebrew Helper</string>
 
     <string name="button_addHomebrew">Add Homebrew</string>
-    <string name="button_delHomebrew">Delete</string>
+    <string name="button_delHomebrew">Delete Homebrew</string>
 
 
     <string name="menu_addHomebrew">Add</string>
