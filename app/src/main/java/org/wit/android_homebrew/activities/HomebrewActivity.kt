@@ -4,29 +4,27 @@ package org.wit.android_homebrew.activities
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_homebrew.*
 import kotlinx.android.synthetic.main.activity_homebrew.homebrewName
-import kotlinx.android.synthetic.main.card_homebrew.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 import org.wit.android_homebrew.R
 import org.wit.android_homebrew.main.MainApp
-import org.wit.android_homebrew.models.HomebrewMemStore
 import org.wit.android_homebrew.models.HomebrewModel
-import org.wit.android_homebrew.models.HomebrewStore
-import java.nio.file.Files.delete
+
 
 
 
 class HomebrewActivity : AppCompatActivity(), AnkoLogger {
 
-    var homebrew = HomebrewModel()
-    lateinit var app : MainApp
-    var edit = false
-    var styleList = arrayOf("Pale Ale", "IPA", "BIPA", "NEIPA", "DIPA", "Barleywine", "Blonde Ale", "White Ale", "Red Ale")
+    private var homebrew = HomebrewModel()
+    private lateinit var app : MainApp
+    private var edit = false
+    private var styleList = arrayOf("Style", "Pale Ale", "IPA", "BIPA", "NEIPA", "DIPA", "Barleywine", "Blonde Ale", "White Ale", "Red Ale")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {//Either create a new homebrew, or edit an existing homebrew
@@ -34,19 +32,19 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_homebrew)
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)
+
         //set spinner with adapter
-        var styleAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, styleList)
+        val styleAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, styleList)
         homebrewStyles.adapter = styleAdapter
         info("Homebrew Activity started")
             app = application as MainApp
 
             if (intent.hasExtra("homebrew_edit")) {//If the intent is to edit the Homebrew Name or Style
                 edit = true
-                homebrew = intent.extras?.getParcelable<HomebrewModel>("homebrew_edit")!!
+                homebrew = intent.extras?.getParcelable("homebrew_edit")!!
 
                 //Setting the strings
                 homebrewName.setText(homebrew.name)
-                //homebrewStyle.setText(homebrew.style)
                 homebrewHop.setText(homebrew.hop)
                 homebrewMalt.setText(homebrew.malt)
                 homebrewYeast.setText(homebrew.yeast)
@@ -55,31 +53,36 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
                 homebrewStyles.setSelection(styleList.indexOf(homebrew.style))
 
                 //Setting the ints
-                var boil = homebrew.boilLength.toString()
+                val boil = homebrew.boilLength.toString()
                 homebrewBoil.setText(boil)
-                var fermTime = homebrew.fermTime.toString()
+                val fermTime = homebrew.fermTime.toString()
                 homebrewFT.setText(fermTime)
 
 
                 //Setting the doubles
-                var abv = homebrew.ABV.toString()
+                val abv = homebrew.ABV.toString()
                 homebrewABV.setText(abv)
-                var tog = homebrew.targetOG.toString()
+                val tog = homebrew.targetOG.toString()
                 homebrewTOG.setText(tog)
-                var tfg = homebrew.targetFG.toString()
+                val tfg = homebrew.targetFG.toString()
                 homebrewTFG.setText(tfg)
-                var aog = homebrew.actualOG.toString()
+                val aog = homebrew.actualOG.toString()
                 homebrewAOG.setText(aog)
-                var afg = homebrew.actualFG.toString()
+                val afg = homebrew.actualFG.toString()
                 homebrewAFG.setText(afg)
 
-                //Setting the add button
+                //Setting the Save button
                 btnAdd.setText(R.string.save_homebrew)
-            }//if intent is to edit
+                btnDel.setTransitionVisibility(View.VISIBLE)
+                btnDel.setOnClickListener {
+                    app.homebrews.delete(homebrew)
+                    finish()
+                }
 
-            btnAdd.setOnClickListener() {//Adding a new homebrew
+            }
+
+            btnAdd.setOnClickListener {//Adding a new homebrew
                 homebrew.name = homebrewName.text.toString()
-                //homebrew.style = homebrewStyle.text.toString()
                 homebrew.style = homebrewStyles.selectedItem.toString()
                 homebrew.hop = homebrewHop.text.toString()
                 homebrew.malt = homebrewMalt.text.toString()
@@ -97,20 +100,16 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
                 } else {
                     if (edit) {
                         app.homebrews.update(homebrew.copy())
+
                     } else {
                         app.homebrews.create(homebrew.copy())
                     }
                 }
                 info("add Homebrew Button pressed: $homebrewName")
-                setResult(AppCompatActivity.RESULT_OK)
+                setResult(RESULT_OK)
                 finish()
             }
-
-            btnDel.setOnClickListener() {
-                app.homebrews.delete(homebrew)
-                finish()
-            }
-        }
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
