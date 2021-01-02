@@ -8,7 +8,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.wit.android_homebrew.helpers.*
 import java.util.*
 
-val JSON_FILE = "homebrews.json"
+const val JSON_FILE = "homebrews.json"
 val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
 val listType = object : TypeToken<java.util.ArrayList<HomebrewModel>>() {}.type
 
@@ -16,13 +16,13 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
-class HomebrewJSONStore : HomebrewStore, AnkoLogger {
+class HomebrewJSONStore(context: Context) : HomebrewStore, AnkoLogger {
 
-    val context: Context
+    private val context: Context
     var homebrews = mutableListOf<HomebrewModel>()
 
-    constructor (context: Context) {
-        this.context = context
+    init {
+        context.also { this.context = it }
         if (exists(context, JSON_FILE)) {
             deserialize()
         }
@@ -40,15 +40,15 @@ class HomebrewJSONStore : HomebrewStore, AnkoLogger {
 
     override fun update(homebrew: HomebrewModel) {
         val homebrewList = findAll() as ArrayList<HomebrewModel>
-        var foundHomebrew: HomebrewModel? = homebrewList.find { p -> p.id == homebrew.id }
+        val foundHomebrew: HomebrewModel? = homebrewList.find { p -> p.id == homebrew.id }
         if (foundHomebrew != null) {
             foundHomebrew.name = homebrew.name
             foundHomebrew.style = homebrew.style
             foundHomebrew.brewDate = homebrew.brewDate
             foundHomebrew.ABV = homebrew.ABV
             foundHomebrew.boilLength = homebrew.boilLength
-            foundHomebrew.hop = homebrew.hop
-            foundHomebrew.malt = homebrew.malt
+            foundHomebrew.hop1 = homebrew.hop1
+            foundHomebrew.malt1 = homebrew.malt1
             foundHomebrew.yeast = homebrew.yeast
             foundHomebrew.targetOG = homebrew.targetOG
             foundHomebrew.targetFG = homebrew.targetFG
