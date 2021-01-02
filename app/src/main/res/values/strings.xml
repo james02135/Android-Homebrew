@@ -3,7 +3,7 @@
 
     <string name="button_addHomebrew">Add Homebrew</string>
     <string name="button_delHomebrew">Delete Homebrew</string>
-
+    <string name="button_addImage">Add Image</string>
 
     <string name="menu_addHomebrew">Add</string>
     <string name="menu_cancelHomebrew">Cancel</string>
@@ -11,16 +11,20 @@
 
     <string name="hint_homebrewName">Homebrew Name</string>
     <string name="enter_homebrew_name"> Please enter a Homebrew Name </string>
-    <string name="hint_homebrewStyle">Style</string>
     <string name="hint_homebrewABV">ABV</string>
     <string name="hint_homebrewDate">Brew Day</string>
     <string name="hint_homebrewBoil">Boil Length(mins)</string>
-    <string name="hint_homebrewMalt">Malt Used</string>
-    <string name="hint_homebrewHop">Hops Used</string>
     <string name="hint_homebrewYeast">Yeast Used</string>
     <string name="hint_homebrewTOG">Target Original Gravity</string>
     <string name="hint_homebrewTFG">Target Final Gravity</string>
     <string name="hint_homebrewAOG">Actual Original Gravity</string>
     <string name="hint_homebrewAFG">Actual Final Gravity</string>
+    <string name="hint_homebrewDryHopChoice">Dry Hopping</string>
+    <string name="hint_homebrewDryHopLength">Dry Hop Length(days)</string>
+    <string name="hint_homebrewDryHopVariety">Dry Hop Variety</string>
     <string name="hint_homebrewFT">Fermentation time(days)</string>
+    <string name="hint_homebrewNotes">Notes</string>
+    <string name="beer_glass">Beer Glass</string>
+    <string name="select_homebrew_image">Select Homebrew Image</string>
+
 </resources>
