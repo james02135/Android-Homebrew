@@ -8,3 +8,5 @@ Store homebrew details such as the Name, style, different malts and hops used, a
 Upload an image of the homebrew, plus adding notes to how the brew went
 
 
+## Main View
+![Main View](./screenshots/main_page.png)
