@@ -10,3 +10,6 @@ Upload an image of the homebrew, plus adding notes to how the brew went
 
 ## Main View
 ![Main View](./app/screenshots/main_page.png)
+
+## Add New Homebrew Menu
+![Add New Menu](./app/screenshots/add_new_menu.png)
