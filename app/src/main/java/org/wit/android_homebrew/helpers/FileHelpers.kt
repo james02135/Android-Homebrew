@@ -4,6 +4,10 @@ import android.content.Context
 import android.util.Log
 import java.io.*
 
+/*
+functions read and write
+ */
+
 fun write(context: Context, fileName: String, data: String) {
     try {
         val outputStreamWriter = OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE))
@@ -24,7 +28,7 @@ fun read(context: Context, fileName: String): String {
             val partialStr = StringBuilder()
             var done = false
             while (!done) {
-                var line = bufferedReader.readLine()
+                val line = bufferedReader.readLine()
                 done = (line == null);
                 if (line != null) partialStr.append(line);
             }
