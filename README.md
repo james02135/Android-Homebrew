@@ -9,4 +9,4 @@ Upload an image of the homebrew, plus adding notes to how the brew went
 
 
 ## Main View
-![Main View](./screenshots/main_page.png)
+![Main View](./app/screenshots/main_page.png)
