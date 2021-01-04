@@ -3,6 +3,12 @@ package org.wit.android_homebrew.models
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+/*
+@author James Richardson
+
+Class HomebrewModel contains all of the attributes of a Homebrew
+ */
+
 @Parcelize
 data class HomebrewModel(
         var id: Long? = 0,

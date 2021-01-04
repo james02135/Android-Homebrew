@@ -12,10 +12,16 @@ import org.wit.android_homebrew.R
 import org.wit.android_homebrew.main.MainApp
 import org.wit.android_homebrew.models.HomebrewModel
 
+/*
+@author James Richardson
+
+HomebrewListActivity governs how the list of Homebrews functions
+ */
+
 
 class HomebrewListActivity : AppCompatActivity(), HomebrewListener {
 
-    lateinit var app: MainApp
+    private lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

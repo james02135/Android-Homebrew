@@ -43,12 +43,12 @@
                 <EditText
                     android:id="@+id/homebrewName"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:hint="@string/hint_homebrewName"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="100"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/black"
@@ -93,6 +93,18 @@
                     android:padding="8dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/homebrewSecondHop"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:padding="0dp"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
                 <EditText
                     android:id="@+id/homebrewBoil"
@@ -157,18 +169,6 @@
                     android:textSize="12sp" />
 
                 <Spinner
-                    android:id="@+id/homebrewSecondHop"
-                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:padding="0dp"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <Spinner
                     android:id="@+id/homebrewThirdHop"
                     style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
@@ -188,7 +188,7 @@
                     android:autofillHints=""
                     android:hint="@string/hint_homebrewYeast"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="200"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/black"
@@ -309,9 +309,7 @@
                     android:layout_margin="8dp"
                     android:autofillHints=""
                     android:hint="@string/hint_homebrewNotes"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
+                    android:inputType="textMultiLine"
                     android:padding="8dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />

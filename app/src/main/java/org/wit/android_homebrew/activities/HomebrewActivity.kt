@@ -20,7 +20,11 @@ import org.wit.android_homebrew.helpers.showImagePicker
 import org.wit.android_homebrew.main.MainApp
 import org.wit.android_homebrew.models.HomebrewModel
 
+/*
+@author James Richardson
 
+Class HomebrewActivity controls how a new Homebrew is added, and edited
+ */
 
 
 class HomebrewActivity : AppCompatActivity(), AnkoLogger {
@@ -28,26 +32,30 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
     private var homebrew = HomebrewModel()
     private lateinit var app : MainApp
     private var edit = false
-    private val IMAGE_REQUEST = 1
+    private val imageRequest = 1
 
+    //Array of beer styles
     private var styleList = arrayOf("- Style -", "None", "Pale Ale", "IPA", "BIPA", "NEIPA", "DIPA", "Barleywine", "Blonde Ale", "White Ale", "Red Ale",
                                     "Milk Stout", "Dry Stout", "Sweet Stout", "Imperial Stout", "Porter", "Baltic Porter", "Imperial Porter",
                                     "Pale Lager", "IPL", "Hefeweizen", "Dunkelweizen", "Vienna Lager", "Pilsner", "Doppelbock", "Belgian Ale",
                                     "Belgian Dubbel", "Belgian Tripel", "Belgian Quad")
 
+    //Array of malt varieties
     private var maltList = arrayOf("- Malts -", "None", "Pale", "Maris Otter", "Black", "Brown", "Chocolate", "DME Extra Light", "DME Light", "DME Amber", "DME Dark",
                                     "LME Extra Light", "LME Light", "LME Amber", "LME Dark", "Smoked", "Caramel", "Wheat", "Munich", "Pilsen", "Red",
                                     "Rye")
 
+    //Array of hop varieties
     private var hopList = arrayOf("- Hops -", "None", "Admiral", "Ahtanum", "Amarillo", "Apollo", "Archer", "Azacca", "Bramling Cross", "Bravo", "Cascade",
                                     "Centennial", "Challenger", "Chinook", "Citra", "Columbus", "Comet", "Crystal", "East Kent Goldings", "El Dorado",
                                     "Ella", "First Gold", "Fuggles", "Galaxy", "Hallertauer", "Idaho-7", "Mosaic", "Nugget", "Saaz", "Simcoe", "Warrior" )
 
+    //Array of choices whether the user Dry Hopped their homebrew
     private var hopChoice = arrayOf("Did You Dry Hop?", "Yes", "No")
 
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {//Either create a new homebrew, or edit an existing homebrew
+    //Either create a new homebrew, or edit an existing homebrew
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homebrew)
         toolbarAdd.title = title
@@ -123,7 +131,8 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
 
                 //Setting the Save button
                 btnAdd.setText(R.string.save_homebrew)
-                btnDel.setTransitionVisibility(View.VISIBLE)//Make the delete button visible
+                //Make the delete button visible
+                btnDel.setTransitionVisibility(View.VISIBLE)
                 btnDel.setOnClickListener {
                     app.homebrews.delete(homebrew)
                     finish()
@@ -131,7 +140,9 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
 
             }
 
-            btnAdd.setOnClickListener {//Adding a new homebrew
+            //Adding a new homebrew
+            btnAdd.setOnClickListener {
+                //Setting the strings
                 homebrew.name = homebrewName.text.toString()
                 homebrew.style = homebrewStyles.selectedItem.toString()
                 homebrew.malt1 = homebrewFirstMalt.selectedItem.toString()
@@ -143,17 +154,22 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
                 homebrew.yeast = homebrewYeast.text.toString()
                 homebrew.brewDate = homebrewDate.text.toString()
                 homebrew.notes = homebrewNotes.text.toString()
+                homebrew.dryHopChoice = homebrewDryHopChoice.selectedItem.toString()
+                //Setting the ints
                 homebrew.boilLength = homebrewBoil.text.toString().toInt()
                 homebrew.fermTime = homebrewFT.text.toString().toInt()
+                //Setting the doubles
                 homebrew.ABV = homebrewABV.text.toString().toDouble()
-                homebrew.dryHopChoice = homebrewDryHopChoice.selectedItem.toString()
-                homebrew.dryHopLength = homebrewDryHopLength.text.toString().toInt()
-                homebrew.dryHopVariety = homebrewDryHopVariety.selectedItem.toString()
                 homebrew.targetOG = homebrewTOG.text.toString().toDouble()
                 homebrew.targetFG = homebrewTFG.text.toString().toDouble()
                 homebrew.actualOG = homebrewAOG.text.toString().toDouble()
                 homebrew.actualFG = homebrewAFG.text.toString().toDouble()
-
+                //If statement to allow the user to enter Dry Hopping information if applicable
+                if (homebrewDryHopChoice.equals("Yes")) {
+                    homebrew.dryHopLength = homebrewDryHopLength.text.toString().toInt()
+                    homebrew.dryHopVariety = homebrewDryHopVariety.selectedItem.toString()
+                }
+                //Validation if the name is empty
                 if (homebrew.name.isEmpty()) {
                     toast(R.string.enter_homebrew_name)
                 } else {
@@ -168,8 +184,9 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
                 setResult(RESULT_OK)
                 finish()
             }
+        //Setting the Select Image button
         btnAddImage.setOnClickListener {
-            showImagePicker(this, IMAGE_REQUEST)
+            showImagePicker(this, imageRequest)
             info ("Select image")
         }
     }
@@ -192,9 +209,9 @@ class HomebrewActivity : AppCompatActivity(), AnkoLogger {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            IMAGE_REQUEST -> {
+            imageRequest -> {
                 if (data != null) {
-                    homebrew.image = data.getData().toString()
+                    homebrew.image = data.data.toString()
                     homebrewImage.setImageBitmap(readImage(this, resultCode, data))
                 }
             }

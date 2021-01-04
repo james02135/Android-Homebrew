@@ -16,6 +16,12 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
+
+/*
+@author James Richardson
+
+Class HomebrewJSONStore stores the Homebrew info to a JSON file
+ */
 class HomebrewJSONStore(context: Context) : HomebrewStore, AnkoLogger {
 
     private val context: Context
